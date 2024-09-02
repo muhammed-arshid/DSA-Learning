@@ -374,6 +374,143 @@ N = 3
 # alphaHill(3)       
 
 '''
+N = 3
+
+C
+C B 
+C B A
+
+'''
+
+# def alphaTriangle(n: int):
+#     for i in range(1,n+1):
+#         for j in range(0,i):
+#             print(chr(64+(n-j)),end='')
+#         print()
+# alphaTriangle(3)
+
+'''
+N = 4
+
+* * * * * * * * 
+* * *     * * *
+* *         * *
+*             *
+* *         * *
+* * *     * * *
+* * * * * * * *
+
+'''
+
+# def symmetry(n: int):
+#     for i in range(0,n):
+#         for j in range(n,i,-1):
+#             print('*',end=' ')
+#         for k in range(0,2*i):
+#             print(' ',end=' ')
+#         for l in range(n,i,-1):
+#             print('*',end=' ')
+#         print()
+#     for i in range(0,n):
+#         for j in range(0,i+1):
+#             print('*',end=' ')
+#         for k in range(2*(n-i-1),0,-1):
+#             print(' ',end=' ')
+#         for l in range(0,i+1):
+#             print('*',end=' ')
+#         print()
+    
+
+# symmetry(4)
+    
+'''
+N = 4
+
+*             * 
+* *         * *
+* * *     * * *
+* * * * * * * *
+* * *     * * *   
+* *         * *
+*             *
+ 
+
+'''
+
+# def symmetry(n: int):
+#     for i in range(0,n):
+#         for j in range(0,i+1):
+#             print('*',end=' ')
+#         for k in range(0,2*(n-i-1)):
+#             print(' ',end=' ')
+#         for l in range(0,i+1):
+#             print('*',end=' ')
+#         print()
+#     for i in range(1,n):
+#         for j in range(0,n-i):
+#             print('*',end=' ')
+#         for k in range(0,2*i):
+#             print(' ',end=' ')
+#         for j in range(0,n-i):
+#             print('*',end=' ')
+#         print()
+# symmetry(4)
+
+'''
+N = 4
+
+* * * *
+*     *
+*     *
+* * * * 
+
+'''
+
+# def getStarPattern(n: int) -> None:
+#     for i in range(0,n):
+#         for j in range(0,n):
+#                 if i == 0 or j == 0 or i == (n-1) or j ==(n-1):
+#                     print('*',end=' ')
+#                 else:
+#                      print(' ',end=' ')
+#         print()
+
+# getStarPattern(3)
 
 
 '''
+N = 4
+
+
+4 4 4 4 4 4 4 4 
+4 3 3 3 3 3 3 4
+4 3 2 2 2 2 3 4
+4 3 2 1 1 2 3 4
+4 3 2 1 1 2 3 4
+4 3 2 2 2 2 3 4
+4 3 3 3 3 3 3 4
+4 4 4 4 4 4 4 4
+
+
+'''
+
+def getNumberPattern(n: int) -> None:
+    size  = 2*n-1
+    arr = [[0]*size for _ in range(size)]
+    for i in range(n,-1,-1):
+        y = n-i
+        for x in range(y,size-y):
+            arr[x][y] = i
+            arr[y][x] = i
+        y=2*n-2-y
+        for x in range(n-i,y+1):
+            arr[y][x]=i
+            arr[x][y]=i
+
+    for i in arr:
+        print(' '.join(str(j) for j in i))
+    
+        
+    
+
+getNumberPattern(3)
